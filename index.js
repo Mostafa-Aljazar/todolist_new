@@ -34,8 +34,8 @@ function renderToDos() {
     </div>
     
     <div class="item__icons">
-        <span class="icons__edite material-icons">edite</span>
-        <span class="icons__remove material-icons">delete</span>
+        <div class="icons__edite material-icons">edite</div>
+        <div class="icons__remove material-icons " data-id="${item.id}">delete</div>
         <input class="icons__done" type="checkbox"></input>
     </div>
     `
@@ -58,6 +58,16 @@ function displayToDos() {
 
   // appending todos
   todos.appendChild(renderToDos())
+
+  // handling events
+  const deleteOneTodo = document.querySelectorAll(".icons__remove")
+
+  deleteOneTodo.forEach((element) => {
+    element.addEventListener("click", (event) => {
+      arr = arr.filter((e) => e.id.trim() !== event.target.dataset.id.trim())
+      displayToDos()
+    })
+  })
 }
 
 displayToDos()
@@ -79,11 +89,8 @@ function EditeTodo() {
 // EditeTodo()
 
 const showTodoes = document.querySelector(".todoHeader__count")
-
 showTodoes.addEventListener("click", (event) => {
-  event.preventDefault()
   displayToDos()
-  console.log("showTodoes")
 })
 
 const AddNew = document.querySelector(".todoHeader__add")
@@ -93,14 +100,6 @@ AddNew.addEventListener("click", (event) => {
 })
 
 // deleteOneTodo ------------------------------------------------
-const deleteOneTodo = document.querySelectorAll(".icons__remove")
-
-deleteOneTodo.forEach((Element) => {
-  Element.addEventListener("click", (event) => {
-    console.log("deleteOneTodo")
-    displayToDos()
-  })
-})
 
 // editeOneTodo ------------------------------------------------
 const editeOneTodo = document.querySelectorAll(".icons__edite")
@@ -126,7 +125,6 @@ const addTodo__btn = document.querySelector(".addTodo__btn")
 
 addTodo__btn.addEventListener("click", (event) => {
   displayToDos()
-  console.log("addTodo__btn")
 })
 
 // editeTodo__btn ------------------------------------------------
