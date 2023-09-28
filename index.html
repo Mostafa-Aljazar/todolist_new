@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList</title>
+    <meta name="description" content="TODEO LIST APP">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+    <!-- class="container" -->
+
+    <!-- header -->
+    <header class="header">
+        <span class="header__icon">
+            <!-- <img class="icon__img" src="images/to-do-list.png" alt="icon"> -->
+        </span>
+        <span class="header__title">Todo list App</span>
+    </header>
+
+
+    <!-- (title, description, time). -->
+
+    <main class="main">
+
+        <section class="todoHeader">
+            <span class="todoHeader__count">Todo list : {5}</span>
+            <span class="todoHeader__add">Add Todo</span>
+        </section>
+
+
+        <!-- All todoes -->
+        <section class="todoes">
+
+<!-- 
+
+            <div class="todoes__item">
+                <div class="item__info">
+                    <h3 class="info__title">title</h3>
+                    <p class="info__description">description</p>
+                    <p class="info__time">time</p>
+                </div>
+
+                <div class="item__icons">
+                    <span class="icons__edite material-icons">edite</span>
+                    <span class="icons__remove material-icons">delete</span>
+                    <input class="icons__done" type="checkbox"></input>
+                </div>
+            </div>
+
+
+
+
+            <div class="todoes__item">
+                <div class="item__info">
+                    <h3 class="info__title">title</h3>
+                    <p class="info__description">description</p>
+                    <p class="info__time">time</p>
+                </div>
+
+                <div class="item__icons">
+                    <span class="icons__edite material-icons">edite</span>
+                    <span class="icons__remove material-icons">delete</span>
+                    <input class="icons__done" type="checkbox"></input>
+                </div>
+            </div>
+
+
+
+
+            <div class="todoes__item">
+                <div class="item__info">
+                    <h3 class="info__title">title</h3>
+                    <p class="info__description">description</p>
+                    <p class="info__time">time</p>
+                </div>
+
+                <div class="item__icons">
+                    <span class="icons__edite material-icons">edite</span>
+                    <span class="icons__remove material-icons">delete</span>
+                    <input class="icons__done" type="checkbox"></input>
+                </div>
+            </div>
+
+
+
+
+            <div class="todoes__item">
+                <div class="item__info">
+                    <h3 class="info__title">title</h3>
+                    <p class="info__description">description</p>
+                    <p class="info__time">time</p>
+                </div>
+
+                <div class="item__icons">
+                    <span class="icons__edite material-icons">edite</span>
+                    <span class="icons__remove material-icons">delete</span>
+                    <input class="icons__done" type="checkbox"></input>
+                </div>
+            </div> -->
+
+
+
+
+
+
+        </section>
+
+
+        <!-- add todoe -->
+
+        <section class="addTodo">
+            <input type="text" class="addTodo__title" placeholder="Title"/>
+            <input type="text" class="addTodo__description" placeholder="Description"/>
+            <input type="time" class="addTodo__time" placeholder="Time"/>
+
+            <button class="addTodo__btn ">Add Todo</button>
+        </section>
+
+        <!-- edite todoe -->
+
+        <section class="editeTodo">
+            <input type="text" class="editeTodo__title" placeholder="Title"/>
+            <input type="text" class="editeTodo__description" placeholder="Description"/>
+            <input type="time" class="editeTodo__time" placeholder="Time"/>
+
+            <button class="editeTodo__btn ">Update Todo</button>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p class="footer__copyLine">&copy; developer: Mostafa Aljazar</p>
+
+    </footer>
+
+
+    <!-- js file link  -->
+<script src="index.js" ></script>
+
+</body>
+
+
+</html>
