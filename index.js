@@ -18,91 +18,100 @@ let arr = [
     description: "desc 2",
     time: "2:1 pm",
   },
-];
+]
 
-function displayTodoes() {
-  return arr.map((item) => {
-    return `
-  
-  <div class="todoes__item">
-  <div class="item__info">
-      <h3 class="info__title">${item.title}</h3>
-      <p class="info__description">${item.description}</p>
-      <p class="info__time">${item.time}</p>
-  </div>
-  
-  <div class="item__icons">
-      <span class="icons__edite material-icons">edite</span>
-      <span class="icons__remove material-icons">delete</span>
-      <input class="icons__done" type="checkbox"></input>
-  </div>
-  </div>
-  `;
-  });
+function renderToDos() {
+  const toDosFragment = new DocumentFragment()
+
+  arr.forEach((item) => {
+    const div = document.createElement("div")
+    div.className = "todoes__item"
+    div.innerHTML = `
+    <div class="item__info">
+        <h3 class="info__title">${item.title}</h3>
+        <p class="info__description">${item.description}</p>
+        <p class="info__time">${item.time}</p>
+    </div>
+    
+    <div class="item__icons">
+        <span class="icons__edite material-icons">edite</span>
+        <span class="icons__remove material-icons">delete</span>
+        <input class="icons__done" type="checkbox"></input>
+    </div>
+    `
+
+    toDosFragment.appendChild(div)
+  })
+
+  return toDosFragment
 }
 
-function getTodoes() {
-  document.querySelector(".addTodo").style.display = "none";
-  document.querySelector(".editeTodo").style.display = "none";
-  //   console.log("getTodoes");
+function displayToDos() {
+  document.querySelector(".addTodo").style.display = "none"
+  document.querySelector(".editeTodo").style.display = "none"
 
-  const todos = document.querySelector(".todoes");
-  todos.style.display = "flex";
-  todos.innerHTML = `${displayTodoes()}`;
+  const todos = document.querySelector(".todoes")
+  todos.style.display = "flex"
+
+  // to clear todos element
+  todos.innerHTML = ""
+
+  // appending todos
+  todos.appendChild(renderToDos())
 }
 
-getTodoes();
+displayToDos()
 
 function AddTodo() {
-  document.querySelector(".todoes").style.display = "none";
-  document.querySelector(".addTodo").style.display = "flex";
-  document.querySelector(".editeTodo").style.display = "none";
+  document.querySelector(".todoes").style.display = "none"
+  document.querySelector(".addTodo").style.display = "flex"
+  document.querySelector(".editeTodo").style.display = "none"
 }
 
 // AddTodo()
 
 function EditeTodo() {
-  document.querySelector(".todoes").style.display = "none";
-  document.querySelector(".addTodo").style.display = "none";
-  document.querySelector(".editeTodo").style.display = "flex";
+  document.querySelector(".todoes").style.display = "none"
+  document.querySelector(".addTodo").style.display = "none"
+  document.querySelector(".editeTodo").style.display = "flex"
 }
 
 // EditeTodo()
 
-const showTodoes = document.querySelector(".todoHeader__count");
+const showTodoes = document.querySelector(".todoHeader__count")
 
 showTodoes.addEventListener("click", (event) => {
-  event.preventDefault();
-  getTodoes();
-  console.log("showTodoes");
-});
+  event.preventDefault()
+  displayToDos()
+  console.log("showTodoes")
+})
 
-const AddNew = document.querySelector(".todoHeader__add");
+const AddNew = document.querySelector(".todoHeader__add")
 
 AddNew.addEventListener("click", (event) => {
-  AddTodo();
-});
+  AddTodo()
+})
 
 // deleteOneTodo ------------------------------------------------
-const deleteOneTodo = document.querySelectorAll(".icons__remove");
+const deleteOneTodo = document.querySelectorAll(".icons__remove")
 
 deleteOneTodo.forEach((Element) => {
   Element.addEventListener("click", (event) => {
-    console.log("deleteOneTodo");
-    getTodoes();
-  });
-});
+    console.log("deleteOneTodo")
+    displayToDos()
+  })
+})
 
 // editeOneTodo ------------------------------------------------
-const editeOneTodo = document.querySelectorAll(".icons__edite");
+const editeOneTodo = document.querySelectorAll(".icons__edite")
 // console.log("count ",editeOneTodo.length)
 
 editeOneTodo.forEach((ele) => {
-  console.log("6556");
+  console.log("6556")
 
   ele.onClick = () => {
-    console.log("editeOneTodo");
-  };
+    console.log("editeOneTodo")
+  }
   //   ele.addEventListener("click", (event) => {
   //     event.preventDefault()
   //     document.querySelector(".editeTodo").style.display = "flex";
@@ -110,37 +119,37 @@ editeOneTodo.forEach((ele) => {
   //     EditeTodo();
   //     console.log("editeOneTodo");
   //   })
-});
+})
 
 // addTodo__btn ------------------------------------------------
-const addTodo__btn = document.querySelector(".addTodo__btn");
+const addTodo__btn = document.querySelector(".addTodo__btn")
 
 addTodo__btn.addEventListener("click", (event) => {
-  getTodoes();
-  console.log("addTodo__btn");
-});
+  displayToDos()
+  console.log("addTodo__btn")
+})
 
 // editeTodo__btn ------------------------------------------------
-const editeTodo__btn = document.querySelectorAll(".editeTodo__btn");
+const editeTodo__btn = document.querySelectorAll(".editeTodo__btn")
 
 editeTodo__btn.forEach((Element) => {
   Element.addEventListener("click", (event) => {
-    getTodoes();
-    console.log("editeTodo__btn");
-  });
-});
+    displayToDos()
+    console.log("editeTodo__btn")
+  })
+})
 
 // editeTodo__btn ------------------------------------------------
-const icons__done = document.querySelectorAll(".icons__done");
+const icons__done = document.querySelectorAll(".icons__done")
 
 icons__done.forEach((Element) => {
   Element.addEventListener("click", (event) => {
-    console.log("icons__done");
-  });
-});
+    console.log("icons__done")
+  })
+})
 
 function getCount() {
-  let count = document.querySelector(".todoHeader__count");
-  count.innerHTML = `Todo list : ${arr.length}`;
+  let count = document.querySelector(".todoHeader__count")
+  count.innerHTML = `Todo list : ${arr.length}`
 }
-getCount();
+getCount()
